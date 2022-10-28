@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"title": "iPhone 14 Pro Max",
+		"price":  129360,
+		"imgSrc": "iphone-14-pro-max.webp"
+	},
+	{
+		"id": 2,
+		"title": "iPhone 14 Pro",
+		"price":  108360,
+		"imgSrc": "iphone-14-pro.webp"
+	},
+	{
+		"id": 3,
+		"title": "iPhone 14 Plus",
+		"price": 89880,
+		"imgSrc": "iphone-14-plus.webp"
+	},
+	{
+		"id": 4,
+		"title": "iPhone 14",
+		"price": 77280,
+		"imgSrc": "iphone-14.webp"
+	}
+]
