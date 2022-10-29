@@ -13,6 +13,11 @@ async function getProducts() {
 	renderProducts(productsArray);
 }
 
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+
 function renderProducts(productsArray) {
     productsArray.map(function (item) {
         const productHTML = `<div class="col-md-6">
@@ -32,7 +37,7 @@ function renderProducts(productsArray) {
 									<!-- // Счетчик -->
 
 									<div class="price">
-										<div class="price__currency">${item.price} ₽</div>
+										<div class="price__currency">${numberWithSpaces(item.price)}сом</div>
 									</div>
 								</div>
 

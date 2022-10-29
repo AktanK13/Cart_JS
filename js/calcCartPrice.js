@@ -13,11 +13,11 @@ function calcCartPriceAndDelivery() {
 		// Находим количество товара
 		const amountEl = item.closest('.cart-item').querySelector('[data-counter]');
 		// Добавляем стоимость товара в общую стоимость (кол-во * цену)
-		priceTotal += parseInt(item.innerText) * parseInt(amountEl.innerText);
+		priceTotal += parseInt(item.innerText.replace(/\s/g, '')) * parseInt(amountEl.innerText.replace(/\s/g, ''));
 	});
 
 	// Отображаем цену на странице
-	totalPriceEl.innerText = priceTotal;
+	totalPriceEl.innerText = numberWithSpaces(priceTotal);
 
 	// Скрываем / Показываем блок со стоимостью доставки
 	if (priceTotal > 0) {
@@ -32,6 +32,13 @@ function calcCartPriceAndDelivery() {
 		deliveryCost.innerText = 'бесплатно';
 	} else {
 		deliveryCost.classList.remove('free');
-		deliveryCost.innerText = '2000 ₽';
+		deliveryCost.innerText = '2000 сом';
 	}
+
+
+}
+
+
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }

@@ -67,10 +67,11 @@
 
 					<!-- Оформить заказ -->
 					<div id="order-form" class="card-body border-top none">
-						<h5 class="card-title">Оформить заказ</h4>
-							<form>
+						<h5 class="card-title">Оформить заказ :</h4>
+							<form action="https://formspree.io/f/xvoywlgg" method="POST">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Ваш номер телефона">
+									<label for="phone-number"><p style="margin: 0px; font-size: 12px;">Введите ваш номер телефона</p></label>
+									<input type="text" onkeydown="phoneNumberFormatter()" id="phone-number" name="phone-number" class="form-control" placeholder="(555) 555-555">
 								</div>
 								<button type="submit" class="btn btn-primary">Заказать</button>
 							</form>
@@ -92,7 +93,26 @@
 	<script src="./js/toggleCartStatus.js"></script>
 	<script src="./js/counter.js"></script>
 	<script src="./js/cart.js"></script>
-
+	<script>
+		function formatPhoneNumber(value) {
+        if (!value) return value;
+        const phoneNumber = value.replace(/[^\d]/g, '');
+        const phoneNumberLength = phoneNumber.length;
+        if (phoneNumberLength < 4) return phoneNumber;
+        if (phoneNumberLength < 7) {
+          return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+        }
+        return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+          3,
+          6
+        )}-${phoneNumber.slice(6, 9)}`;
+      }
+	  function phoneNumberFormatter() {
+        const inputField = document.getElementById('phone-number');
+        const formattedInputValue = formatPhoneNumber(inputField.value);
+        inputField.value = formattedInputValue;
+      }
+	</script>
 </body>
 
 </html>
